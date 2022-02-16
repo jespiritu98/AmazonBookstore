@@ -15,7 +15,7 @@ namespace AmazonBookstore.Infastructure
     [HtmlTargetElement("div", Attributes = "page-blah")]
     public class PaginationTagHelper : TagHelper
     {
-        //Dynamically create the page links for us
+        //creates the page links for us
 
         private IUrlHelperFactory uhf;
 
@@ -38,7 +38,7 @@ namespace AmazonBookstore.Infastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i < PageBlah.TotalPages; i++)
+            for (int i = 1; i <= PageBlah.TotalPages; i++)
             {
                 TagBuilder tb = new TagBuilder("a");
 
