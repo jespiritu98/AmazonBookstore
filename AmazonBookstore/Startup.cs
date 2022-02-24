@@ -34,6 +34,12 @@ namespace AmazonBookstore
             });
 
             services.AddScoped<IAmazonBookstoreRepository, EFAmazonBookstoreRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
         }
 
 
@@ -47,12 +53,27 @@ namespace AmazonBookstore
             }
             //Corresponds to the wwwroot folder
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage",
+                    "{Category}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                   name: "Paging",
+                   pattern: "Page{PageNum}",
+                   new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("type",
+                    "{Category}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }
