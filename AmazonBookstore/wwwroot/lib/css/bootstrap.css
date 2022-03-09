@@ -5,6 +5,17 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+/*Added footer css*/
+.footer {
+    font-size: 20px;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #fafafa;
+    border-top: solid 1px #eee;
+}
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -4485,6 +4496,7 @@ textarea.form-control-lg {
 .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
+
 
 .card {
   position: relative;
